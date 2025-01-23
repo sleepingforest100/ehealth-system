@@ -6,7 +6,7 @@
 Если оно не активно, активируйте виртуальное окружение:
 
 Windows:
-.venv\Scripts\activate
+.venv\Scripts\activate \\
 Linux/macOS:
 source .venv/bin/activate
 
