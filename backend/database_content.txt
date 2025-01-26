@@ -1,0 +1,14 @@
+
+=== Содержимое таблицы Admins ===
+Таблица пуста.
+
+=== Содержимое таблицы Doctors ===
+id: 1, name: Dr. Brown, specialization: Cardiologist
+id: 2, name: Dr. Green, specialization: Dermatologist
+
+=== Содержимое таблицы Users ===
+id: 1, name: John Doe, email: john@example.com, medical_history: Diabetes
+id: 2, name: Jane Smith, email: jane@example.com, medical_history: Healthy
+
+=== Содержимое таблицы Appointments ===
+Таблица пуста.

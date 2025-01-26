@@ -1,18 +1,16 @@
 from fastapi import FastAPI
-from app.routes import admin, doctor, user
-from app.database import Base, engine
-from app.routes import appointment
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+from pathlib import Path
+from fastapi import Request
 
-
-# Создание таблиц
-Base.metadata.create_all(bind=engine)
-
-# Инициализация FastAPI
+# Initialize FastAPI app
 app = FastAPI()
 
-# Подключение маршрутов
-app.include_router(admin.router, prefix="/admin", tags=["Admin"])
-app.include_router(doctor.router, prefix="/doctor", tags=["Doctor"])
-app.include_router(user.router, prefix="/user", tags=["User"])
-app.include_router(appointment.router, prefix="/appointments", tags=["Appointments"])
+# Correct directory path for Jinja2 templates
+templates = Jinja2Templates(directory=Path(__file__).parent.parent / "frontend/build")
 
+# Route to serve the index.html
+@app.get("/", response_class=HTMLResponse)
+async def serve_frontend(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
